@@ -1,0 +1,73 @@
+name: Vérification SMTP des emails
+
+on:
+  workflow_dispatch:      # lancement manuel depuis l'onglet "Actions"
+
+# Empêche deux exécutions simultanées (important vu la reprise par fichier CSV)
+concurrency:
+  group: verification-emails
+  cancel-in-progress: false
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90        # un lot de 20 avec pause de 1s/email prend largement moins de temps
+    permissions:
+      contents: write          # nécessaire pour re-commit liste.csv / leads_enrichis.csv
+      actions: write           # nécessaire pour déclencher le prochain lot (workflow_dispatch)
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installer les dépendances
+        run: pip install requests dnspython
+
+      - name: Lancer la vérification SMTP (lot de 20 lignes max)
+        id: verification
+        env:
+          MAX_LEADS_PAR_RUN: "20"
+        run: |
+          # Le script sort avec le code 2 s'il reste des lignes à traiter, 0 si
+          # tout est terminé. On capture ce code sans faire échouer le job.
+          set +e
+          python enrichir_leads.py
+          echo "code_sortie=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Uploader le CSV des résultats comme artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: leads_enrichis-${{ github.run_number }}
+          path: leads_enrichis.csv
+
+      - name: Committer et pousser les fichiers mis à jour
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add liste.csv leads_enrichis.csv
+          git diff --staged --quiet || git commit -m "Vérification SMTP - lot de 20 (run #${{ github.run_number }})"
+          git push
+
+      - name: Attendre un peu avant le lot suivant (limiter le débit, changer d'IP)
+        if: steps.verification.outputs.code_sortie == '2'
+        run: sleep 30
+
+      - name: Déclencher le lot suivant s'il reste des lignes à vérifier
+        if: steps.verification.outputs.code_sortie == '2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Il reste des lignes à vérifier - déclenchement du prochain lot (nouvelle IP)..."
+          gh workflow run "${{ github.workflow }}" --repo "${{ github.repository }}" --ref "${{ github.ref_name }}"
+
+      - name: Tout est terminé
+        if: steps.verification.outputs.code_sortie == '0'
+        run: echo "✅ Toutes les lignes ont été vérifiées, aucun lot supplémentaire nécessaire."
