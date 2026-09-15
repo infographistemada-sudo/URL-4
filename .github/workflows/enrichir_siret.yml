@@ -1,0 +1,57 @@
+name: Enrichissement SIRET + dirigeant
+
+# Ce workflow exécute ss.py sur le fichier entreprises.csv présent à la racine
+# du dépôt, puis met le résultat (resultats_complets.tsv) à disposition en
+# téléchargement (artifact) et le committe dans le dépôt.
+
+on:
+  # Lancement manuel depuis l'onglet "Actions" de GitHub
+  workflow_dispatch: {}
+
+  # Lancement automatique dès qu'entreprises.csv ou ss.py sont modifiés/poussés
+  push:
+    paths:
+      - "entreprises.csv"
+      - "ss.py"
+
+jobs:
+  enrichissement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120  # l'API est limitée à 7 req/s, prévoir large pour un gros fichier
+
+    steps:
+      - name: Récupérer le code du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # ss.py ne dépend que de la bibliothèque standard (csv, json, re, time,
+      # urllib, ssl) : aucune installation de dépendance n'est nécessaire.
+
+      - name: Vérifier la présence du fichier d'entrée
+        run: |
+          if [ ! -f "entreprises.csv" ]; then
+            echo "::error::Le fichier entreprises.csv est introuvable à la racine du dépôt."
+            exit 1
+          fi
+
+      - name: Exécuter l'enrichissement (ss.py)
+        run: python ss.py
+
+      - name: Publier le résultat en tant qu'artifact téléchargeable
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultats_complets
+          path: resultats_complets.tsv
+          if-no-files-found: error
+
+      - name: Committer le résultat dans le dépôt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add resultats_complets.tsv
+          git diff --staged --quiet && echo "Rien à committer." || git commit -m "Mise à jour automatique de resultats_complets.tsv"
+          git push
