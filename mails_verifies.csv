@@ -699,3 +699,103 @@ s.sd@louvre-hotels.com,louvre-hotels.com,louvrehotels-com01e.mail.protection.out
 s.serafini@france-thermes.com,france-thermes.com,francethermes-com01e.mail.protection.outlook.com,Non,Valide (SMTP 250),Valide
 s.silvain@equalia.fr,equalia.fr,equalia-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
 s.spinner@residenceberry.com,residenceberry.com,,,Impossible (résolution MX échouée),Impossible (MX)
+s.t@residhotel.com,residhotel.com,residhotel-com.mail.protection.outlook.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+s.terei@suprafrance.fr,suprafrance.fr,mail.suprafrance.fr,Non,Inexistant (SMTP 550),Inexistant
+s.trebouta@espaceetvie.fr,espaceetvie.fr,espaceetvie-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+s.undefined@louvre-hotels.com,louvre-hotels.com,louvrehotels-com01e.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+s.vannes@edendessens.fr,edendessens.fr,mx1.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+s.voisin@espaceetvie.fr,espaceetvie.fr,espaceetvie-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+s.vuillaume@bellesrives.com,bellesrives.com,bellesrives-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+s.wackermann@source-sens.com,source-sens.com,,,Impossible (résolution MX échouée),Impossible (MX)
+s.zito@igesa.fr,igesa.fr,igesa-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+saber.bouali@hotelbb.com,hotelbb.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+sabina.d@lvrivieraspa.com,lvrivieraspa.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+sabine.guerrisi@bnetwork.com,bnetwork.com,bnetwork-com.mail.protection.outlook.com,Non,Valide (SMTP 250),Valide
+sabine.lavieville@yrnet.com,yrnet.com,mxb-0021d901.gslb.pphosted.com,Non,Expéditeur rejeté par le serveur (code 550 : 5.7.1 Command rejected) - vérification impossible,Erreur (voir Resultat_SMTP)
+sabine.meyer@labergerie.fr,labergerie.fr,lagergerie-fr.mail.protection.outlook.com,Non,Erreur réseau : [Errno -2] Name or service not known,Erreur (voir Resultat_SMTP)
+sabine.ndzie@previthal.com,previthal.com,previthal-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+sabine.royer@lechenevert.fr,lechenevert.fr,mx1.lechenevert.fr,Non,Inexistant (SMTP 550),Inexistant
+sabou.petrisor@mamashelter.com,mamashelter.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <sabou.petrisor@mamashelter.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+sabri.hakimi@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+sabrina.bacquie@hively-hospitality.com,hively-hospitality.com,mx3.coaxis.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+sabrina.boutros@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <sabrina.boutros@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+sabrina.brogan@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+sabrina.nasri@niceandspa.fr,niceandspa.fr,mx4.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+sabrina.ouachi@campanile.fr,campanile.fr,campanile-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+sabrina.ramos@chateau-des-tourelles.com,chateau-des-tourelles.com,ns7.squallnetwork.net,Non,Incertain (Code 554 : 5.7.1 <sabrina.ramos@chateau-des-tourelles.com>: Relay access denied),Incertain
+sabrina.wernert@marriott.com,marriott.com,marriott-com.mail.protection.outlook.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+sabrine.hassaine@jivahill.com,jivahill.com,mx-mibc-fr-05.mailinblack.com,Non,Inexistant (SMTP 550),Inexistant
+safia.masmoudi@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+said.madi@ecole-terrade.com,ecole-terrade.com,mx4.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+salaheddine.nahid@odalys.fr,odalys.fr,odalys-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+saliha.m@equilibrebeaute.fr,equilibrebeaute.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+salim.belahmer@happyculture.com,happyculture.com,happyculture-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+salim.ghannam@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <salim.ghannam@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+salim.hafayed@lademeuremontaigne.com,lademeuremontaigne.com,mx0.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+salome.azaud@thermesmarins.com,thermesmarins.com,,,Impossible (résolution MX échouée),Impossible (MX)
+salome.lavergne@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <salome.lavergne@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+salvatore.mannara@roidesicile.com,roidesicile.com,,,Impossible (résolution MX échouée),Impossible (MX)
+sam.hamaty@fourseasons.com,fourseasons.com,mx1.fourseasons.iphmx.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+sam.richez@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <sam.richez@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+samantha.beltrami@hotel-charbonnel.com,hotel-charbonnel.com,,,Impossible (résolution MX échouée),Impossible (MX)
+samantha.capelli@spalarosiere.fr,spalarosiere.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+samantha.decastro@hotel-laprison.com,hotel-laprison.com,,,Impossible (résolution MX échouée),Impossible (MX)
+samantha@auberge-aillon.com,auberge-aillon.com,,,Impossible (résolution MX échouée),Impossible (MX)
+samba.ka@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+samba.kebe@ritzparis.com,ritzparis.com,mxa-00930d01.gslb.pphosted.com,Non,Expéditeur rejeté par le serveur (code 550 : 5.7.1 Command rejected) - vérification impossible,Erreur (voir Resultat_SMTP)
+sami.ounalli@movenpick.com,movenpick.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+sami.sengelen@leburgundy.com,leburgundy.com,leburgundy-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+samian.rais@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+samir.azzar@ihg.com,ihg.com,mxa-0036c501.gslb.pphosted.com,Non,Expéditeur rejeté par le serveur (code 550 : 5.7.1 Command rejected) - vérification impossible,Erreur (voir Resultat_SMTP)
+samir.mouloudi@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+samir.yaou@adagio-apartements.com,adagio-apartements.com,,,Impossible (résolution MX échouée),Impossible (MX)
+samorim@groupebarriere.com,groupebarriere.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+samuel.h@hotelmarignan.fr,hotelmarignan.fr,hotelmarignan-fr.mail.eo.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+samuel.sacquet@eklohotels.com,eklohotels.com,eklohotels-com.mail.protection.outlook.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+samuel.vouilloux@waldorfastoria.com,waldorfastoria.com,waldorfastoria-com.mail.protection.outlook.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+samy@hotelnational.paris,hotelnational.paris,mx4.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+sanbenedetto@bestwestern.fr,bestwestern.fr,bestwestern-mx1.titanhq.com,Non,Inexistant (SMTP 550),Inexistant
+sanchez.ridjlado@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <sanchez.ridjlado@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+sanda.andries@relais-spa.com,relais-spa.com,mailhost.reside-etudes.fr,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+sandie.gheza@lescalebienetre.fr,lescalebienetre.fr,mx1.jimdo.com,Non,Inexistant (SMTP 550),Inexistant
+sandra.bideau@untempspoursoi.fr,untempspoursoi.fr,mx186.mb1p.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+sandra.boher@formed-o.fr,formed-o.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandra.brugere@massane.com,massane.com,massane-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+sandra.dantas@lesbainsdegrenelle.fr,lesbainsdegrenelle.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandra.fontana@ihg.com,ihg.com,mxa-0036c501.gslb.pphosted.com,Non,Expéditeur rejeté par le serveur (code 550 : 5.7.1 Command rejected) - vérification impossible,Erreur (voir Resultat_SMTP)
+sandra.gadiot@hotel-rodin.com,hotel-rodin.com,,,Impossible (résolution MX échouée),Impossible (MX)
+sandra.goutorbe@dorchestercollection.com,dorchestercollection.com,eu-smtp-inbound-2.mimecast.com,Non,Incertain (Code 451 : Internal resource temporarily unavailable - https://community.mimecast.com/docs/DOC-1369#451 [5zcP3eZoOfallGjmvYalUA.uk231]),Incertain
+sandra.graff@rspire.fr,rspire.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandra.lampee@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+sandra.larquier@pauzdesoi.fr,pauzdesoi.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandra.munch@lvrivieraspa.com,lvrivieraspa.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+sandra.pinturault@maisonpinturault.com,maisonpinturault.com,mx4.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+sandra.proy@golfe-hotel.com,golfe-hotel.com,mx0.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+sandra.rouger@maisonlacassagne.fr,maisonlacassagne.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandra.stival@carre-zen.fr,carre-zen.fr,mail.carre-zen.fr,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+sandra.talbot@guerlain.fr,guerlain.fr,mxa-0024c501.gslb.pphosted.com,Non,Expéditeur rejeté par le serveur (code 550 : 5.7.1 Command rejected) - vérification impossible,Erreur (voir Resultat_SMTP)
+sandra.valette@sayanabienetre.fr,sayanabienetre.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.barberis@sowell.fr,sowell.fr,sowell-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+sandrine.bellanger@villa-augeval.com,villa-augeval.com,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.benard@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+sandrine.boisneau@yrnet.com,yrnet.com,mxb-0021d901.gslb.pphosted.com,Non,Expéditeur rejeté par le serveur (code 550 : 5.7.1 Command rejected) - vérification impossible,Erreur (voir Resultat_SMTP)
+sandrine.daviere@cgh-residences.com,cgh-residences.com,mx-mibc-fr-10.mailinblack.com,Non,Inexistant (SMTP 550),Inexistant
+sandrine.deneubourg@plaisirdessens.fr,plaisirdessens.fr,mx186.m2bp.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+sandrine.dimaggio@oetkercollection.com,oetkercollection.com,oetkercollection-com.mail.protection.outlook.com,Non,Valide (SMTP 250),Valide
+sandrine.dudot@covivio.hotels,covivio.hotels,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.dussart@murieltspa.fr,murieltspa.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.fleury@axhotel.com,axhotel.com,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.lokea@zenetbelle.fr,zenetbelle.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.maurice@hotelbb.com,hotelbb.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+sandrine.penso@naturalspa.fr,naturalspa.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.penso@naturalspa78.fr,naturalspa78.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandrine.perez@phytomer.com,phytomer.com,phytomer-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+sandrine.robin@leveildessens.fr,leveildessens.fr,mx1.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+sandrine@domainedesclos.com,domainedesclos.com,heracles.produhost.net,Non,Inexistant (SMTP 550),Inexistant
+sandy.a@domainedemanville.fr,domainedemanville.fr,mx1.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [52.159.243.177])",Incertain
+sandy.delpech@thalazur.fr,thalazur.fr,mx2.coaxis.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+sandy.faugere@cadhi.fr,cadhi.fr,cadhi-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+sandy.fillaudeau@relaisthalasso.com,relaisthalasso.com,relaisthalasso-com.mail.protection.outlook.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+sandy.fouchereau@senancole.com,senancole.com,,,Impossible (résolution MX échouée),Impossible (MX)
+sandy.misiak@sandmadero.fr,sandmadero.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+sandy.mistral@lesbalcons.com,lesbalcons.com,mx01.lesbalcons.com,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
