@@ -1199,3 +1199,103 @@ t.bertrand@noemys.fr,noemys.fr,mx-mibc-fr-08.mailinblack.com,Non,Inexistant (SMT
 t.bezelga@grape-hospitality.com,grape-hospitality.com,grapehospitality-com01c.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
 t.carlier@appartcity.com,appartcity.com,appartcity-com.mail.protection.outlook.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
 t.castillon@equalia.fr,equalia.fr,equalia-fr.mail.protection.outlook.com,Non,Valide (SMTP 250),Valide
+t.cherubini@appartcity.com,appartcity.com,appartcity-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.chevallier@equalia.fr,equalia.fr,equalia-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.cilente@equalia.fr,equalia.fr,equalia-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.decima@recrea.fr,recrea.fr,recrea-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.delellis@thalgo.com,thalgo.com,thalgo-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.demartrin@igesa.fr,igesa.fr,igesa-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.dethezy@chateau-domiecourt.com,chateau-domiecourt.com,,,Impossible (résolution MX échouée),Impossible (MX)
+t.dupiczak@equalia.fr,equalia.fr,equalia-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.durel@okkohotels.com,okkohotels.com,okkohotels-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.dussous@vatel.fr,vatel.fr,vatel-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.fontaine@umih.fr,umih.fr,umih-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.gaud@lapierreblanche.com,lapierreblanche.com,,,Impossible (résolution MX échouée),Impossible (MX)
+t.laurenti@umih.fr,umih.fr,umih-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.leblanc@lerituel-hotel.fr,lerituel-hotel.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+t.lechleiter@domaine-hirtz.com,domaine-hirtz.com,domainehirtz-com01i.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.legrix@recrea.fr,recrea.fr,recrea-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.malgorn@la-chamoiserie.com,la-chamoiserie.com,,,Impossible (résolution MX échouée),Impossible (MX)
+t.marchand@espaceetvie.fr,espaceetvie.fr,espaceetvie-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.maurer@elancia.fr,elancia.fr,elancia-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.merceron@royalmougins.fr,royalmougins.fr,royalmougins-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.ober@ecole-tunon.com,ecole-tunon.com,,,Impossible (résolution MX échouée),Impossible (MX)
+t.p@chateauvalmer.com,chateauvalmer.com,vade-mx-fr01.hornetsecurity.com,Non,Incertain (Code 554 : 5.5.4 Your IP address 130.131.247.160 has a bad reputation. To unblock visit https://cloud-security.net/unblock?blocked_ip=130.131.247.160&reason=6&qid=NOQUEUE),Incertain
+t.phan@louvre-hotels.com,louvre-hotels.com,louvrehotels-com01e.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.pilleau@louvre-hotels.com,louvre-hotels.com,louvrehotels-com01e.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.puchaczewski@zenitude-groupe.com,zenitude-groupe.com,protect.oci.fr,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+t.schneider@igesa.fr,igesa.fr,igesa-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.tarot@vert-marine.com,vert-marine.com,vertmarine-com01b.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+t.viegas@garden-city.fr,garden-city.fr,mx-mibc-fr-10.mailinblack.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+t.yakin@passagebleu.com,passagebleu.com,mail.cobweb.fr,Non,Incertain (Code 450 : 4.7.1 <verification-bot.com>: Helo command rejected: Host not found),Incertain
+t.zuccarelli@zenitude-groupe.com,zenitude-groupe.com,protect.oci.fr,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+taki.ider@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+tal.benzazon@vatel.fr,vatel.fr,vatel-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+talia.galluffo@hotelducouvent.com,hotelducouvent.com,alt1.aspmx.l.google.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+tamas@hotelduparc-cavalaire.com,hotelduparc-cavalaire.com,hotelduparccavalaire-com02i.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tangui.merle@vatel.fr,vatel.fr,vatel-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tanguy.glaud@chateau-des-tourelles.com,chateau-des-tourelles.com,ns7.squallnetwork.net,Non,Incertain (Code 554 : 5.7.1 <tanguy.glaud@chateau-des-tourelles.com>: Relay access denied),Incertain
+tanguy.puau@hively-hospitality.com,hively-hospitality.com,mx2.coaxis.com,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+tania.crepin@hotelbb.com,hotelbb.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+tania.trinchi@terrasses-eze.com,terrasses-eze.com,,,Impossible (résolution MX échouée),Impossible (MX)
+tarik.elmansouri@disney.com,disney.com,disney-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tatiana.cvetkovski@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <tatiana.cvetkovski@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+tatiana.komarova@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+tatiana.petina@odalys.fr,odalys.fr,odalys-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tatiana.regent@caliceo.com,caliceo.com,caliceo-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tbaptiste@groupebarriere.com,groupebarriere.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+tbeuve@fabulous-hotels.com,fabulous-hotels.com,mx-mibc-fr-10.mailinblack.com,Non,Inexistant (SMTP 550),Inexistant
+tbouhnik@sbm.mc,sbm.mc,mxa-0085f401.gslb.pphosted.com,Non,Inexistant (SMTP 550),Inexistant
+tboulogne@groupe-atlantic.com,groupe-atlantic.com,mxa-004f0402.gslb.pphosted.com,Non,Valide (SMTP 250),Valide
+tcarmisco@oetkercollection.com,oetkercollection.com,oetkercollection-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tchalet@groupebarriere.com,groupebarriere.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+tdelavault@diormail.com,diormail.com,mxa-0024c501.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+tdemolliens@hotel-du-cap-eden-roc.com,hotel-du-cap-eden-roc.com,,,Impossible (résolution MX échouée),Impossible (MX)
+tderoquemaurel@groupe-atlantic.com,groupe-atlantic.com,mxa-004f0402.gslb.pphosted.com,Non,Valide (SMTP 250),Valide
+tduval@dalmatahospitality.com,dalmatahospitality.com,dalmatahospitality-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tea.maviel@clubmetropolitan.com,clubmetropolitan.com,clubmetropolitan-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+teddy.leboucher@theascott.com,theascott.com,,,Impossible (résolution MX échouée),Impossible (MX)
+teddy.robin@lesbainsromains.com,lesbainsromains.com,,,Impossible (résolution MX échouée),Impossible (MX)
+tenzin.nemang@tajhotels.com,tajhotels.com,tajhotels-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+teri.friesen@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <teri.friesen@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+tess.a@lvrivieraspa.com,lvrivieraspa.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+tess.laborie@sources-cheverny.com,sources-cheverny.com,sourcescheverny-com01i.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tess.poyer@relais-christine.com,relais-christine.com,relaischristine-com01e.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+tfrotiee@groupebarriere.com,groupebarriere.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+tgallien@groupebarriere.com,groupebarriere.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+tgazquez@groupebarriere.com,groupebarriere.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+tgervais@groupe-atlantic.com,groupe-atlantic.com,mxa-004f0402.gslb.pphosted.com,Non,Valide (SMTP 250),Valide
+tguilloux@roz-marine-thalasso.com,roz-marine-thalasso.com,u22.altospam.com,Non,Incertain (Code 554 : 5.5.4 Your IP address 130.131.247.160 has a bad reputation. To unblock visit https://cloud-security.net/unblock?blocked_ip=130.131.247.160&reason=6&qid=NOQUEUE),Incertain
+thais.abolet@marriott.com,marriott.com,marriott-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+thais.touboulic@deepnature.fr,deepnature.fr,mx0.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [130.131.247.160])",Incertain
+thalia.flandin@marina-adelphia.com,marina-adelphia.com,,,Impossible (résolution MX échouée),Impossible (MX)
+thanida@thaibalancemassage.fr,thaibalancemassage.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+thaouet@diormail.com,diormail.com,mxa-0024c501.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+theana.roesch@hotel-lasignoria.com,hotel-lasignoria.com,,,Impossible (résolution MX échouée),Impossible (MX)
+theepan.aiyathurai@marriott.com,marriott.com,marriott-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+theo.bilba@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+theo.dufaye@jardinsdedeauville.com,jardinsdedeauville.com,,,Impossible (résolution MX échouée),Impossible (MX)
+theo.gilbert@raffles.com,raffles.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <theo.gilbert@raffles.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+theo.girard@omnubo.com,omnubo.com,mx4.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [130.131.247.160])",Incertain
+theo.levot@guerlain.fr,guerlain.fr,mxa-0024c501.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+theodora.quesnot@leserefugedesolaise.com,leserefugedesolaise.com,,,Impossible (résolution MX échouée),Impossible (MX)
+theodore.vacquier@adagio-apartements.com,adagio-apartements.com,,,Impossible (résolution MX échouée),Impossible (MX)
+theophile.giard@labriqueterie.fr,labriqueterie.fr,labriqueterie-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+theophile.loison@d-edge.com,d-edge.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+therese.f@deepnature.fr,deepnature.fr,mx0.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [130.131.247.160])",Incertain
+thibaud.boisson@kyriadprestigelyonest.com,kyriadprestigelyonest.com,,,Impossible (résolution MX échouée),Impossible (MX)
+thibaud.fayard@cash-piscines.com,cash-piscines.com,cashpiscines-com01b.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+thibault.andreievitch@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+thibault.camman@chateaudelagaude.com,chateaudelagaude.com,chateaudelagaude-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+thibault.caron@cgh-residences.com,cgh-residences.com,mx-mibc-fr-10.mailinblack.com,Non,Inexistant (SMTP 550),Inexistant
+thibault.castanet@yrnet.com,yrnet.com,mxb-0021d901.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+thibault.fauconnier@bestwestern.fr,bestwestern.fr,bestwestern-mx1.titanhq.com,Non,Inexistant (SMTP 550),Inexistant
+thibault.fremont@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+thibault.houlot@hotelbb.com,hotelbb.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+thibault.laleman@hotelducouvent.com,hotelducouvent.com,alt1.aspmx.l.google.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+thibault.lasserre@odalys.fr,odalys.fr,odalys-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+thibault.roy@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+thibault@murtoli.com,murtoli.com,aspmx.l.google.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+thibaut.m@evianresort.com,evianresort.com,mxa-000f8e02.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+thibaut.petit@oceaniahotels.com,oceaniahotels.com,oceaniahotels-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+thibaut.z@hotel-leyaca.com,hotel-leyaca.com,,,Impossible (résolution MX échouée),Impossible (MX)
