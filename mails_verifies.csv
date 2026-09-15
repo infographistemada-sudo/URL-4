@@ -1,0 +1,101 @@
+Email,Domaine,Serveur_MX,Catch_All,Resultat_SMTP,Statut_Final
+p.maillat@appartcity.com,appartcity.com,appartcity-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.mattern@bc-inoxeo.fr,bc-inoxeo.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+p.noailles@igesa.fr,igesa.fr,igesa-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.pain@umih.fr,umih.fr,umih-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.parra@loucapitelle.com,loucapitelle.com,loucapitelle-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.ponza@epikur.fr,epikur.fr,mx00.ionos.fr,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+p.razou@hotelsoleoprado.com,hotelsoleoprado.com,mx1.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [20.106.182.194])",Incertain
+p.recorbet@nemea.fr,nemea.fr,nemea-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.remy@legrandhotel.com,legrandhotel.com,,,Impossible (résolution MX échouée),Impossible (MX)
+p.rodrigues@appartcity.com,appartcity.com,appartcity-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.rosselli@zenitude-groupe.com,zenitude-groupe.com,protect.oci.fr,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+p.rueda@louvre-hotels.com,louvre-hotels.com,louvrehotels-com01e.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.saussay@gpsa-advisory.com,gpsa-advisory.com,,,Impossible (résolution MX échouée),Impossible (MX)
+p.sauvage@fahrenheitseven.com,fahrenheitseven.com,fahrenheitseven-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.tomasena@cabotbordeaux.com,cabotbordeaux.com,ca-smtp-inbound-2.mimecast.com,Non,Inexistant (SMTP 550),Inexistant
+p.tristram@appartcity.com,appartcity.com,appartcity-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.truong@omah-group.com,omah-group.com,smtp.google.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+p.vallera@theoriginals-hotels.com,theoriginals-hotels.com,,,Impossible (résolution MX échouée),Impossible (MX)
+p.vaudaine@vert-marine.com,vert-marine.com,vertmarine-com01b.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+p.verkindt@evasionaunaturel.com,evasionaunaturel.com,mx1.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [20.106.182.194])",Incertain
+p.videau@exploris-cruises.com,exploris-cruises.com,,,Impossible (résolution MX échouée),Impossible (MX)
+p.zevaco@baumaniere.com,baumaniere.com,mx-mibc-fr-05.mailinblack.com,Non,Inexistant (SMTP 550),Inexistant
+pa.barbot@domainederoiffe.fr,domainederoiffe.fr,aspmx.l.google.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+pacome.lefranc@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <pacome.lefranc@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+pacome@paladel-cadre.fr,paladel-cadre.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+paguezennec@diormail.com,diormail.com,mxa-0024c501.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+paldon.tsejeytsang@dorchestercollection.com,dorchestercollection.com,eu-smtp-inbound-2.mimecast.com,Non,Inexistant (SMTP 550),Inexistant
+paloma.vanolrik@disney.com,disney.com,disney-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pamela.warner@natayoga.fr,natayoga.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pandora.cochin@njjhospitality.com,njjhospitality.com,njjhospitality-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+paolo.costarella@courbevoie.fr,courbevoie.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pape.niang@mmv.fr,mmv.fr,mmv-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+paquito.antunez@disney.com,disney.com,disney-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.agostini@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <pascal.agostini@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+pascal.amand@hotelbourgtheroulde.com,hotelbourgtheroulde.com,,,Impossible (résolution MX échouée),Impossible (MX)
+pascal.benedetti@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+pascal.blomme@terre-blanche.com,terre-blanche.com,terre--blanche-com-1.fortimailcloud.com,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+pascal.donat@valotel.com,valotel.com,valotel-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.droux@lestresoms.com,lestresoms.com,lestresoms-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.ferniot@ecole-terrade.com,ecole-terrade.com,mx4.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [20.106.182.194])",Incertain
+pascal.franchet@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+pascal.goger@hotel-ambassadeurs.com,hotel-ambassadeurs.com,,,Impossible (résolution MX échouée),Impossible (MX)
+pascal.gorisse@cash-piscines.com,cash-piscines.com,cashpiscines-com01b.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.hanouzet@lavarenne.fr,lavarenne.fr,mx1.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [20.106.182.194])",Incertain
+pascal.l@lebeauvallon.com,lebeauvallon.com,au-smtp-inbound-1.mimecast.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.leon@yrnet.com,yrnet.com,mxa-0021d901.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+pascal.lesueur@hotelbb.com,hotelbb.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+pascal.locatelli@369hotels.com,369hotels.com,,,Impossible (résolution MX échouée),Impossible (MX)
+pascal.lombard@lesglycines-dordogne.com,lesglycines-dordogne.com,,,Impossible (résolution MX échouée),Impossible (MX)
+pascal.maze@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+pascal.paincon@la-cle-des-champs.fr,la-cle-des-champs.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascal.petrillo@montempo.fr,montempo.fr,montempo-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.rousselot@vacanceole.com,vacanceole.com,vacanceole-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.saccavini@reveildessens.fr,reveildessens.fr,mx1.hostinger.com,Non,Inexistant (SMTP 550),Inexistant
+pascal.siaudeau@hotel-calarossa.com,hotel-calarossa.com,hotelcalarossa-com01c.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascal@albertini-propriete.fr,albertini-propriete.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascal@l-hotelspa.fr,l-hotelspa.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascal@luxewellnessclub.com,luxewellnessclub.com,aspmx.l.google.com,Non,Valide (SMTP 250),Valide
+pascale.croq@lesite-du-donjon.com,lesite-du-donjon.com,,,Impossible (résolution MX échouée),Impossible (MX)
+pascale.maze@despiedsalatete.fr,despiedsalatete.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascale.patin@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+pascale.quero@lavillaclemenceau.com,lavillaclemenceau.com,mx1.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [20.106.182.194])",Incertain
+pascale.samson@thalazur.fr,thalazur.fr,mx4.coaxis.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+pascale.toulemonde@manaya.fr,manaya.fr,mx1.hostinger.com,Non,Inexistant (SMTP 550),Inexistant
+pascale.veran@narevshotel.com,narevshotel.com,,,Impossible (résolution MX échouée),Impossible (MX)
+pascale.viraye@pascalebeauty.fr,pascalebeauty.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascale@coquillaud-spathalasso.fr,coquillaud-spathalasso.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascale@domaine-chantesse.com,domaine-chantesse.com,,,Impossible (résolution MX échouée),Impossible (MX)
+pascale@garcinbiessy-spamanager.fr,garcinbiessy-spamanager.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascaline.bon@lignedetente.fr,lignedetente.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+pascaline.evain@relaisthalasso.com,relaisthalasso.com,relaisthalasso-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+pascaline.keukelaere@aujard.fr,aujard.fr,aspmx.l.google.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+pascalrobinet@outlook.com,outlook.com,outlook-com.olc.protection.outlook.com,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+pat.tong@disney.com,disney.com,disney-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+patrice.aira@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Valide (SMTP 250),Valide
+patrice.charpentier@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <patrice.charpentier@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+patrice.djololian@hydrafacial.com,hydrafacial.com,mxa-003dfa01.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+patrice.eliyena@portlagalere.com,portlagalere.com,mx01.ionos.fr,Non,Le serveur a coupé la connexion (blocage anti-spam probable côté entreprise),Erreur (voir Resultat_SMTP)
+patrice.loiret@yrnet.com,yrnet.com,mxa-0021d901.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+patrice.macaluso@hyatt.com,hyatt.com,mxb-00114c02.gslb.pphosted.com,Non,Inexistant (SMTP 550),Inexistant
+patrice.marin@temana.fr,temana.fr,temana-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+patrice.minery@thalazur.fr,thalazur.fr,mx4.coaxis.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+patrice.nobili@orfea.fr,orfea.fr,orfea-fr.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+patrice.pinard@ritzparis.com,ritzparis.com,mxb-00930d01.gslb.pphosted.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+patricia.arvin@lavilladuspa.fr,lavilladuspa.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+patricia.badie@maisonalaena.com,maisonalaena.com,,,Impossible (résolution MX échouée),Impossible (MX)
+patricia.bournel@institutlecocon.fr,institutlecocon.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+patricia.collomb@hotelgrandesrousses.com,hotelgrandesrousses.com,hotelgrandesrousses-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+patricia.denis@accor.com,accor.com,accor.in.tmes.trendmicro.eu,Non,Incertain (Code 554 : 5.7.1 <patricia.denis@accor.com>: Recipient address rejected: Invalid-Recipient.),Incertain
+patricia.g@thalasso-issambres.com,thalasso-issambres.com,spool.mail.gandi.net,Non,"Incertain (Code 554 : 5.7.1 Service unavailable; Client host [20.106.182.194] blocked using sbl-xbl.spamhaus.org; Listed by XBL, see https://check.spamhaus.org/query/ip/20.106.182.194)",Incertain
+patricia.godet@hotelbb.com,hotelbb.com,aspmx.l.google.com,Non,Inexistant (SMTP 550),Inexistant
+patricia.lebigre@lesgreensdeugenie.fr,lesgreensdeugenie.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+patricia.machut@vitalparc.com,vitalparc.com,vitalparc-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+patricia.marchal@deepnature.fr,deepnature.fr,mx0.mail.ovh.net,Non,"Incertain (Code 450 : 4.7.1 Client host rejected: cannot find your reverse hostname, [20.106.182.194])",Incertain
+patricia.marsella@domainedespierres.fr,domainedespierres.fr,mx186.mb1p.com,Oui,Catch-all détecté (résultat non fiable),Catch-all (non fiable)
+patricia.soliveres@clubmetropolitan.com,clubmetropolitan.com,clubmetropolitan-com.mail.protection.outlook.com,Non,Inexistant (SMTP 550),Inexistant
+patricia@choquier-bienetre.fr,choquier-bienetre.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+patricia@espaceshambaya.fr,espaceshambaya.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+patricia@g-spamanager.fr,g-spamanager.fr,,,Impossible (résolution MX échouée),Impossible (MX)
+patricia@patinet-esthetique.fr,patinet-esthetique.fr,,,Impossible (résolution MX échouée),Impossible (MX)
