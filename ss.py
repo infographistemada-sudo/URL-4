@@ -1,159 +1,376 @@
+# -*- coding: utf-8 -*-
+"""
+Enrichissement SIRET + dirigeant via l'API recherche-entreprises.api.gouv.fr
+
+Principe : on n'envoie JAMAIS l'adresse dans le parametre `q`.
+Le nom nettoye va dans `q`, la geographie va dans les filtres dedies
+(code_postal / departement), ce qui est la seule facon d'obtenir des
+resultats fiables.
+"""
+
 import csv
 import json
 import re
 import time
 import urllib.parse
 import urllib.request
+import urllib.error
 import ssl
 
 # --- CONFIGURATION ---
-FICHIER_ENTREE = "entreprises.csv"  # Nom de votre fichier de départ
-FICHIER_SORTIE = "resultats_complets.tsv"  # Contient : Nom, SIRET, Dirigeant
+FICHIER_ENTREE = "entreprises.csv"
+FICHIER_SORTIE = "resultats_complets.tsv"
 
-# L'API impose 7 appels/seconde max - on reste large en-dessous.
-PAUSE_ENTRE_APPELS = 0.3
+PAUSE_ENTRE_APPELS = 0.35     # l'API plafonne a 7 req/s
+MAX_TENTATIVES_429 = 4        # nombre de reessais sur quota depasse
+DEBUG = True                  # True = affiche chaque URL testee
 
+API_BASE = "https://recherche-entreprises.api.gouv.fr/search"
+
+# Mots vides / marketing a retirer du nom avant interrogation
+MOTS_PARASITES = {
+    "massages", "massage", "bien", "etre", "être", "wellness", "spa",
+    "centre", "complexe", "base", "loisirs", "aquatique", "nautique",
+    "piscine", "hotel", "hôtel", "gite", "gîte", "camping", "aventure",
+    "canyoning", "tyroliennes", "ferrata", "via", "parc", "club", "forme",
+    "domicile", "entreprises", "therapeute", "thérapeute", "holistique",
+    "sonotherapeute", "sonothérapeute", "constellatrice", "masseuse",
+    "masseur", "cure", "thermale", "chambres", "hotes", "hôtes",
+    "location", "maison", "vacances", "nature", "experience", "expérience",
+}
+
+
+# ----------------------------------------------------------------------
+# NETTOYAGE
+# ----------------------------------------------------------------------
 
 def nettoyer_texte(valeur):
-    """Retire les retours à la ligne/tabulations parasites et réduit les
-    espaces multiples à un seul - évite d'envoyer une requête bizarre à
-    l'API si un champ du CSV contient un saut de ligne caché."""
+    """Normalise les espaces et retire les caracteres de controle."""
     if not valeur:
         return ""
-    return re.sub(r'\s+', ' ', valeur).strip()
+    valeur = valeur.replace("\u2019", "'").replace("\u2018", "'")
+    valeur = re.sub(r"[\x00-\x1f\x7f]", " ", valeur)
+    return re.sub(r"\s+", " ", valeur).strip()
 
 
-def chercher_infos_entreprise(nom, adresse=""):
-    # On nettoie la requête pour l'API
-    requete = nettoyer_texte(f"{nom} {adresse}")
-    query_encodee = urllib.parse.quote(requete)
+def nettoyer_nom_societe(nom):
+    """
+    Transforme un nom issu d'un scrap Google Maps en requete exploitable.
 
-    # BUG CORRIGÉ : il manquait le vrai nom d'hôte de l'API et le séparateur
-    # "/search?q=" entre le domaine et la requête. Avant, l'URL ressemblait à
-    # "https://api.gouv.frSpa Léonard de Vinci...&per_page=1" - Python essayait
-    # alors d'interpréter tout le texte de recherche comme un nom d'hôte, d'où
-    # l'erreur "URL can't contain control characters".
-    url = f"https://recherche-entreprises.api.gouv.fr/search?q={query_encodee}&per_page=1"
+    "HARMONIA Massages Bien-etre - Marmande"  -> "HARMONIA"
+    "Accroche Toi Aux Branches | Vallon..."   -> "Accroche Toi Aux Branches"
+    "Thermes De Digne Les Bains (cure...)"    -> "Thermes De Digne Les Bains"
+    """
+    nom = nettoyer_texte(nom)
 
-    siret = "Non trouvé"
-    dirigeant = "Non trouvé"
+    # 1. On coupe a partir du premier separateur de "baseline" marketing
+    for sep in ["|", " - ", " – ", " — ", " : ", " / "]:
+        if sep in nom:
+            nom = nom.split(sep)[0].strip()
 
-    try:
-        # Contournement des problèmes de certificats SSL sous certaines versions de Windows
-        ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl.CERT_NONE
+    # 2. On retire les parentheses et leur contenu
+    nom = re.sub(r"\([^)]*\)", " ", nom)
 
-        req = urllib.request.Request(
-            url, headers={"User-Agent": "ScriptAutomatisationSIRET/1.0"}
-        )
-        with urllib.request.urlopen(req, context=ctx, timeout=10) as response:
-            data = json.loads(response.read().decode("utf-8"))
+    # 3. On retire les virgules (souvent "Enseigne, Prenom Nom : description")
+    if "," in nom:
+        nom = nom.split(",")[0].strip()
 
-            # Vérification de la présence de résultats
-            if data.get("results") and len(data["results"]) > 0:
-                premier_resultat = data["results"][0]
+    # 4. Ponctuation residuelle
+    nom = re.sub(r"[«»\"“”]", " ", nom)
+    nom = nettoyer_texte(nom)
 
-                # 1. Extraction du SIRET
-                etablissements = premier_resultat.get("matching_etablissements", [])
-                if etablissements and len(etablissements) > 0:
-                    siret = etablissements[0].get("siret", "Non trouvé")
-                else:
-                    siret = premier_resultat.get("siege", {}).get("siret", "Non trouvé")
+    return nom
 
-                # 2. Extraction du Dirigeant Principal
-                liste_dirigeants = premier_resultat.get("dirigeants", [])
-                if liste_dirigeants and len(liste_dirigeants) > 0:
-                    p_dirigeant = liste_dirigeants[0]
 
-                    # BUG CORRIGÉ : l'API renvoie "prenoms" (au pluriel), pas
-                    # "prenom" - avec l'ancien nom de champ, le prénom était
-                    # toujours vide, même quand la requête aboutissait.
-                    if p_dirigeant.get("nom") or p_dirigeant.get("prenoms"):
-                        nom_p = (p_dirigeant.get("nom") or "").upper()
-                        prenom_p = (p_dirigeant.get("prenoms") or "").split(" ")[0].title()
-                        dirigeant = f"{prenom_p} {nom_p}".strip()
-                    elif p_dirigeant.get("denomination"):
-                        dirigeant = p_dirigeant.get("denomination")
+def nom_raccourci(nom, n_mots=3):
+    """Garde les n premiers mots significatifs (derniere chance)."""
+    mots = [m for m in nom.split() if len(m) > 2]
+    significatifs = [m for m in mots if m.lower().strip("'-") not in MOTS_PARASITES]
+    base = significatifs if significatifs else mots
+    return " ".join(base[:n_mots])
 
-    except Exception as e:
-        # Permet d'afficher la vraie cause de l'erreur dans la console pour débugger
-        print(f"  [!] Erreur technique sur cette ligne : {e}")
-        siret = "Erreur API"
-        dirigeant = "Erreur API"
 
-    return siret, dirigeant
+def extraire_code_postal(adresse):
+    """Recupere un code postal francais a 5 chiffres dans l'adresse."""
+    if not adresse:
+        return ""
+    m = re.search(r"\b(\d{5})\b", adresse)
+    return m.group(1) if m else ""
 
+
+def extraire_departement(code_postal):
+    """20xxx -> 2A/2B non geres finement ; on renvoie les 2 premiers chiffres."""
+    if not code_postal or len(code_postal) != 5:
+        return ""
+    if code_postal.startswith("97") or code_postal.startswith("98"):
+        return code_postal[:3]
+    if code_postal.startswith("20"):
+        # L'API attend 2A / 2B pour la Corse et le decoupage ne suit pas
+        # strictement le code postal : on prefere ne pas filtrer.
+        return ""
+    return code_postal[:2]
+
+
+def extraire_ville(adresse, code_postal):
+    """Prend ce qui suit le code postal comme nom de ville."""
+    if not adresse or not code_postal:
+        return ""
+    partie = adresse.split(code_postal, 1)
+    if len(partie) < 2:
+        return ""
+    ville = nettoyer_texte(partie[1])
+    ville = re.sub(r"\b(France|FRANCE)\b", "", ville)
+    ville = ville.strip(" ,-")
+    return ville
+
+
+# ----------------------------------------------------------------------
+# APPEL API
+# ----------------------------------------------------------------------
+
+def _contexte_ssl():
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    return ctx
+
+
+def appeler_api(params):
+    """
+    Effectue un appel et renvoie (data, message_erreur).
+    Gere le 429 avec un backoff exponentiel.
+    """
+    url = API_BASE + "?" + urllib.parse.urlencode(params)
+
+    if DEBUG:
+        print(f"      ? {url}")
+
+    for tentative in range(MAX_TENTATIVES_429):
+        try:
+            req = urllib.request.Request(
+                url, headers={"User-Agent": "EnrichissementSIRET/2.0"}
+            )
+            with urllib.request.urlopen(req, context=_contexte_ssl(), timeout=15) as r:
+                return json.loads(r.read().decode("utf-8")), None
+
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                attente = 2 ** tentative
+                print(f"      [429] quota atteint, pause de {attente}s...")
+                time.sleep(attente)
+                continue
+            if e.code == 400:
+                # requete invalide : inutile de reessayer
+                return None, "HTTP 400 (requete invalide)"
+            return None, f"HTTP {e.code}"
+
+        except urllib.error.URLError as e:
+            return None, f"Reseau : {e.reason}"
+
+        except Exception as e:
+            return None, f"{type(e).__name__} : {e}"
+
+    return None, "HTTP 429 (quota, abandon apres reessais)"
+
+
+def extraire_siret_dirigeant(data):
+    """Extrait le SIRET et le dirigeant principal du premier resultat."""
+    resultats = data.get("results") or []
+    if not resultats:
+        return None, None
+
+    premier = resultats[0]
+
+    # SIRET : etablissement correspondant, sinon siege
+    siret = None
+    etabs = premier.get("matching_etablissements") or []
+    if etabs:
+        siret = etabs[0].get("siret")
+    if not siret:
+        siret = (premier.get("siege") or {}).get("siret")
+
+    # Dirigeant principal
+    dirigeant = None
+    dirs = premier.get("dirigeants") or []
+    if dirs:
+        d = dirs[0]
+        if d.get("nom") or d.get("prenoms"):
+            nom_p = (d.get("nom") or "").upper()
+            prenom_p = (d.get("prenoms") or "").split(" ")[0].title()
+            dirigeant = f"{prenom_p} {nom_p}".strip()
+        elif d.get("denomination"):
+            dirigeant = d.get("denomination")
+
+    # Nom legal trouve, utile pour controler la pertinence
+    nom_legal = premier.get("nom_complet") or premier.get("nom_raison_sociale") or ""
+
+    return (siret, dirigeant), nom_legal
+
+
+def chercher_entreprise(nom_brut, adresse=""):
+    """
+    Cascade de strategies, de la plus precise a la plus large.
+    Renvoie (siret, dirigeant, nom_legal, strategie_gagnante).
+    """
+    nom = nettoyer_nom_societe(nom_brut)
+    if not nom:
+        return "Nom vide", "Nom vide", "", "-"
+
+    cp = extraire_code_postal(adresse)
+    dept = extraire_departement(cp)
+    ville = extraire_ville(adresse, cp)
+    court = nom_raccourci(nom)
+
+    strategies = []
+    if cp:
+        strategies.append(("nom + code postal", {"q": nom, "code_postal": cp}))
+    if dept:
+        strategies.append(("nom + departement", {"q": nom, "departement": dept}))
+    if ville:
+        strategies.append(("nom + ville", {"q": f"{nom} {ville}"}))
+    strategies.append(("nom seul", {"q": nom}))
+    if court and court.lower() != nom.lower():
+        if dept:
+            strategies.append(("nom court + dept", {"q": court, "departement": dept}))
+        strategies.append(("nom court", {"q": court}))
+
+    derniere_erreur = None
+
+    for libelle, params in strategies:
+        params = dict(params)
+        params["per_page"] = 1
+        params["limite_matching_etablissements"] = 1
+
+        data, erreur = appeler_api(params)
+        time.sleep(PAUSE_ENTRE_APPELS)
+
+        if erreur:
+            derniere_erreur = erreur
+            continue
+
+        resultat, nom_legal = extraire_siret_dirigeant(data)
+        if resultat:
+            siret, dirigeant = resultat
+            return (
+                siret or "SIRET absent",
+                dirigeant or "Dirigeant non publie",
+                nom_legal,
+                libelle,
+            )
+
+    if derniere_erreur:
+        return f"Erreur : {derniere_erreur}", "Erreur", "", "-"
+    return "Non trouve", "Non trouve", "", "-"
+
+
+# ----------------------------------------------------------------------
+# LECTURE DU FICHIER
+# ----------------------------------------------------------------------
+
+def lire_fichier(chemin):
+    """
+    Lit le CSV/TSV en devinant l'encodage puis le separateur.
+    On teste utf-8-sig d'abord : c'est le cas le plus frequent et
+    `errors="ignore"` avec cp1252 detruit silencieusement des caracteres.
+    """
+    contenu = None
+    for enc in ("utf-8-sig", "utf-8", "cp1252", "latin-1"):
+        try:
+            with open(chemin, "r", encoding=enc) as f:
+                contenu = f.read()
+            print(f"-> Encodage retenu : {enc}")
+            break
+        except UnicodeDecodeError:
+            continue
+
+    if contenu is None:
+        raise RuntimeError("Impossible de decoder le fichier.")
+
+    # Detection du separateur : on compte les occurrences plutot que
+    # de prendre le premier trouve (un seul nom avec virgule suffisait
+    # a faire basculer l'ancienne detection).
+    premiere_ligne = contenu.split("\n", 1)[0]
+    scores = {sep: premiere_ligne.count(sep) for sep in ["\t", ";", ","]}
+    separateur = max(scores, key=scores.get)
+    if scores[separateur] == 0:
+        separateur = "\t"
+
+    affichage = {"\t": "\\t", ";": ";", ",": ","}[separateur]
+    print(f"-> Separateur retenu : '{affichage}'")
+
+    return list(csv.reader(contenu.splitlines(), delimiter=separateur))
+
+
+# ----------------------------------------------------------------------
+# MAIN
+# ----------------------------------------------------------------------
 
 def main():
-    print(f"Début du traitement de '{FICHIER_ENTREE}'...")
+    print(f"Debut du traitement de '{FICHIER_ENTREE}'...\n")
 
     try:
-        with (
-            open(FICHIER_ENTREE, "r", encoding="cp1252", errors="ignore") as f_in,
-            open(
-                FICHIER_SORTIE, "w", encoding="utf-8", newline=""
-            ) as f_out,
-        ):
-
-            # Détection automatique du séparateur
-            contenu_debut = f_in.read(2048)
-            f_in.seek(0)
-
-            separateur = "\t"  # Par défaut
-            for sep in [";", ",", "\t"]:
-                if sep in contenu_debut:
-                    separateur = sep
-                    break
-
-            print(f"-> Séparateur détecté : '{separateur.replace(chr(9), chr(92) + 't')}'")
-
-            lecteur = csv.reader(f_in, delimiter=separateur)
-            ecrivain = csv.writer(f_out, delimiter="\t")
-
-            lignes_traitees = 0
-
-            for ligne in lecteur:
-                if not ligne or len(ligne) == 0 or not ligne[0].strip():
-                    continue
-
-                # On prend la première colonne comme nom de société
-                nom_societe = nettoyer_texte(ligne[0])
-
-                # S'il y a une deuxième colonne et qu'elle ne contient pas déjà une ancienne erreur, on la prend comme adresse
-                adresse = ""
-                if len(ligne) >= 2 and "Erreur API" not in ligne[1]:
-                    adresse = nettoyer_texte(ligne[1])
-
-                # On ignore la ligne d'en-tête si elle existe
-                if nom_societe.lower() in ["nom_societe", "nom société", "nom"]:
-                    continue
-
-                print(f"Recherche pour : {nom_societe}...")
-
-                siret, dirigeant = chercher_infos_entreprise(
-                    nom_societe, adresse
-                )
-
-                print(f"    -> SIRET : {siret} | Dirigeant : {dirigeant}")
-
-                # Écriture dans le fichier final (sans en-tête)
-                ecrivain.writerow([nom_societe, siret, dirigeant])
-                f_out.flush()
-                lignes_traitees += 1
-
-                # Légère pause pour l'API
-                time.sleep(PAUSE_ENTRE_APPELS)
-
-        print(
-            f"\nTerminé ! {lignes_traitees} lignes ont été traitées avec succès."
-        )
-        print(f"Le fichier résultat a été enregistré sous : '{FICHIER_SORTIE}'")
-
+        lignes = lire_fichier(FICHIER_ENTREE)
     except FileNotFoundError:
-        print(
-            f"Erreur : Le fichier '{FICHIER_ENTREE}' est introuvable."
+        print(f"Erreur : le fichier '{FICHIER_ENTREE}' est introuvable.")
+        return
+    except RuntimeError as e:
+        print(f"Erreur : {e}")
+        return
+
+    traitees = 0
+    trouvees = 0
+
+    with open(FICHIER_SORTIE, "w", encoding="utf-8-sig", newline="") as f_out:
+        ecrivain = csv.writer(f_out, delimiter="\t")
+        ecrivain.writerow(
+            ["Nom d'origine", "Nom interroge", "SIRET", "Dirigeant",
+             "Nom legal trouve", "Strategie"]
         )
+
+        for ligne in lignes:
+            if not ligne or not ligne[0].strip():
+                continue
+
+            nom_societe = nettoyer_texte(ligne[0])
+
+            if nom_societe.lower() in ("nom_societe", "nom societe",
+                                       "nom société", "nom", "entreprise"):
+                continue
+
+            adresse = ""
+            if len(ligne) >= 2:
+                candidat = nettoyer_texte(ligne[1])
+                if "Erreur" not in candidat and "Non trouv" not in candidat:
+                    adresse = candidat
+
+            print(f"[{traitees + 1}] {nom_societe}")
+
+            siret, dirigeant, nom_legal, strategie = chercher_entreprise(
+                nom_societe, adresse
+            )
+
+            if siret and siret[0].isdigit():
+                trouvees += 1
+                print(f"    OK  SIRET {siret} | {dirigeant} | via {strategie}")
+                if nom_legal:
+                    print(f"        nom legal : {nom_legal}")
+            else:
+                print(f"    KO  {siret}")
+
+            ecrivain.writerow([
+                nom_societe,
+                nettoyer_nom_societe(nom_societe),
+                siret,
+                dirigeant,
+                nom_legal,
+                strategie,
+            ])
+            f_out.flush()
+            traitees += 1
+
+    taux = (trouvees / traitees * 100) if traitees else 0
+    print(f"\nTermine : {trouvees}/{traitees} trouvees ({taux:.0f} %).")
+    print(f"Resultat enregistre dans '{FICHIER_SORTIE}'.")
 
 
 if __name__ == "__main__":
