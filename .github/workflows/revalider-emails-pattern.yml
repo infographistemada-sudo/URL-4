@@ -1,14 +1,14 @@
-name: Vérification SMTP des emails
+name: Revalidation des emails par pattern
 
 on:
   workflow_dispatch:      # lancement manuel depuis l'onglet "Actions"
 
 jobs:
-  verifier:
+  revalider:
     runs-on: ubuntu-latest
-    timeout-minutes: 90        # un lot de 100 avec pause de 1s/email prend ~10-15 min mini
+    timeout-minutes: 90        # un lot de 100 avec pauses SMTP prend ~15-20 min mini
     permissions:
-      contents: write          # nécessaire pour re-commit liste_mail.csv / mails_verifies.csv
+      contents: write          # nécessaire pour re-commit liste_a_revalider.csv / emails_revalides.csv
       actions: write           # nécessaire pour déclencher le prochain lot (workflow_dispatch)
 
     steps:
@@ -23,15 +23,15 @@ jobs:
       - name: Installer les dépendances
         run: pip install dnspython
 
-      - name: Lancer la vérification SMTP (lot de 100 emails max)
-        id: verification
+      - name: Lancer la revalidation par pattern (lot de 100 lignes max)
+        id: revalidation
         env:
-          MAX_EMAILS_PAR_RUN: "100"
+          MAX_PAR_RUN: "100"
         run: |
-          # Le script sort avec le code 2 s'il reste des emails à vérifier, 0 si
+          # Le script sort avec le code 2 s'il reste des lignes à revalider, 0 si
           # tout est terminé. On capture ce code sans faire échouer le job.
           set +e
-          python verifier_emails_smtp.py
+          python revalider_emails_pattern.py
           echo "code_sortie=$?" >> "$GITHUB_OUTPUT"
           set -e
 
@@ -39,30 +39,30 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mails_verifies-${{ github.run_number }}
-          path: mails_verifies.csv
+          name: emails_revalides-${{ github.run_number }}
+          path: emails_revalides.csv
 
       - name: Committer et pousser les fichiers mis à jour
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add liste_mail.csv mails_verifies.csv
-          git diff --staged --quiet || git commit -m "Vérification SMTP - lot de 100 (run #${{ github.run_number }})"
+          git add liste_a_revalider.csv emails_revalides.csv
+          git diff --staged --quiet || git commit -m "Revalidation par pattern - lot de 100 (run #${{ github.run_number }})"
           git push
 
       - name: Attendre un peu avant le lot suivant (limiter le débit)
-        if: steps.verification.outputs.code_sortie == '2'
+        if: steps.revalidation.outputs.code_sortie == '2'
         run: sleep 30
 
-      - name: Déclencher le lot suivant s'il reste des emails à vérifier
-        if: steps.verification.outputs.code_sortie == '2'
+      - name: Déclencher le lot suivant s'il reste des lignes à revalider
+        if: steps.revalidation.outputs.code_sortie == '2'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Il reste des emails à vérifier - déclenchement du prochain lot..."
+          echo "Il reste des lignes à revalider - déclenchement du prochain lot..."
           gh workflow run "${{ github.workflow }}" --repo "${{ github.repository }}"
 
       - name: Tout est terminé
-        if: steps.verification.outputs.code_sortie == '0'
-        run: echo "✅ Tous les emails ont été vérifiés, aucun lot supplémentaire nécessaire."
+        if: steps.revalidation.outputs.code_sortie == '0'
+        run: echo "✅ Toutes les lignes ont été revalidées, aucun lot supplémentaire nécessaire."
